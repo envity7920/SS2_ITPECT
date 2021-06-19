@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import * as WebBrowser from 'expo-web-browser';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import AppStack from './navigation/AppStack';
@@ -8,8 +8,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { ActivityIndicator, Alert, View } from 'react-native';
 import { colors } from './utils/colors';
 import { AuthContext } from './components/context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as firebase from 'firebase';
+import { ResponseType } from 'expo-auth-session';
+import * as Google from 'expo-auth-session/providers/google';
 
 
 
@@ -26,6 +27,7 @@ if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
+WebBrowser.maybeCompleteAuthSession();
 
 
 export default function App() {
@@ -44,7 +46,7 @@ export default function App() {
   // FIREBASE
   const [user, setUser] = useState(null);
   const [initializing, setInitializing] = useState(true);
-  
+
 
 
 
@@ -87,6 +89,32 @@ export default function App() {
             console.log(e);
           }
         },
+        googleSignIn: async () => {
+          const response = Google.useIdTokenAuthRequest(
+            {
+              clientId: '647627597329-odh8qan264fshufqqi87kneokhgl55ia.apps.googleusercontent.com',
+            },
+          )[1];
+          try {
+            if (response?.type === 'success') {
+              const { id_token } = response.params;
+              const credential = firebase.auth.GoogleAuthProvider.credential(id_token);
+              await firebase.auth().signInWithCredential(credential);
+            }
+
+
+
+
+
+
+          } catch (error) {
+            console.log(error);
+          }
+
+
+        }
+
+        ,
         signOut: async () => {
           try {
             await firebase.auth().signOut();
@@ -95,9 +123,9 @@ export default function App() {
           }
         },
         signUp: async (email, password) => {
-         
+
           // try {
-            await firebase.auth().createUserWithEmailAndPassword(email, password);
+          await firebase.auth().createUserWithEmailAndPassword(email, password);
           // } catch (error) {
           //   console.log(error);
           //   return error;

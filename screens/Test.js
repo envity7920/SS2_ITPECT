@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { Alert, BackHandler, FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, BackHandler, FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View, Modal } from 'react-native';
 import CountDown from 'react-native-countdown-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import AnswerItem from '../components/AnswerItem';
-
+import NumberItem from '../components/NumberItem';
 import QuestionText from '../components/QuestionText';
 import { colors } from '../utils/colors';
 import { questions } from '../utils/exams';
@@ -12,7 +12,7 @@ const Test = ({ route, navigation }) => {
   // Get question list from exam name
   const { abbr, fullname } = route.params;
   const questionList = questions[abbr];
-
+  const [modalVisible, setModalVisible] = useState(false);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentID, setCurrentID] = useState(questionList[0]['_id']);
@@ -115,6 +115,7 @@ const Test = ({ route, navigation }) => {
 
   useEffect(() => {
     setAnswerChecked(userAnswerList.get(currentID));
+    console.log(userAnswerList);
   }, [answerChecked, userAnswerList])
 
 
@@ -225,9 +226,14 @@ const Test = ({ route, navigation }) => {
           </View>
         </TouchableOpacity>
 
-        <View>
-          <Text style={styles.statusBarText}>{currentIndex + 1} / 20</Text>
-        </View>
+        <TouchableOpacity
+          onPress={() => {
+            setModalVisible(true);
+          }}>
+          <View>
+            <Text style={styles.statusBarText}>{currentIndex + 1} / 20</Text>
+          </View>
+        </TouchableOpacity>
 
         <TouchableOpacity
           styles={styles.button}
@@ -243,6 +249,60 @@ const Test = ({ route, navigation }) => {
 
 
       </View>
+
+
+      {/* Question list */}
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}>
+        <View style={[styles.container, { backgroundColor: 'rgba(0,0,0,.8)', padding: 0 }]}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Question List</Text>
+
+
+              <FlatList data={questionList} numColumns={4} keyExtractor={(item) => item._id} renderItem={({ item }) => (
+
+                <NumberItem
+                  number={questionList.indexOf(item) + 1}
+                  isAnswered={userAnswerList.get(item._id) ? true : false}
+                  pressHandler={() => {
+                   
+                    setModalVisible(!modalVisible);
+                    setCurrentIndex(questionList.indexOf(item));
+                    setCurrentID(item._id);
+                    setAnswerChecked(userAnswerList.get(item._id));
+
+                  }}
+
+
+                />
+
+              )} />
+              {/* {questionList.map((option, key) => (
+                
+              ))} */}
+
+
+
+              <TouchableOpacity
+                style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}>
+                <Text style={styles.textStyle}>Hide</Text>
+              </TouchableOpacity>
+
+
+
+            </View>
+          </View>
+        </View>
+      </Modal>
 
     </View>
   )
@@ -305,6 +365,49 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     marginLeft: 10
 
+  },
+
+
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+  modalView: {
+    margin: 10,
+    marginBottom: 60,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 20,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  openButton: {
+    backgroundColor: '#F194FF',
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+    fontSize: 16,
+    fontFamily: 'Montserrat-Bold',
+    color: colors.secondary_dark_blue
   },
 
 

@@ -20,7 +20,7 @@ const Signin = ({ navigation }) => {
 
 
   // CONTEXT
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn} = useContext(AuthContext);
 
 
   // FUNCTIONS TO HANDEL INPUT CHANGE OR PRESS EVENTS
@@ -172,7 +172,8 @@ const Signin = ({ navigation }) => {
             iconName='google'
             color="#de4d41"
             buttonText='Sign in with Google'
-            backgroundColor='#f5e7ea' />
+            backgroundColor='#f5e7ea' 
+            onPress={() => googleSignIn()}/>
 
 
           <TouchableOpacity onPress={() => navigation.navigate('Signup')}>

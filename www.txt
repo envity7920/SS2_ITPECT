@@ -1,0 +1,10 @@
+Expo client ID
+
+
+Android client ID
+
+
+
+
+Web Client ID
+647627597329-odh8qan264fshufqqi87kneokhgl55ia.apps.googleusercontent.com

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "647627597329",
+    "project_id": "rn-itpec",
+    "storage_bucket": "rn-itpec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647627597329:android:0b3973f51fd8f26ae0b3b0",
+        "android_client_info": {
+          "package_name": "com.itpec.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647627597329-qvpka2iccg9ra1kp22fhu398pnlej8rf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itpec.app",
+            "certificate_hash": "695c70681cdaf5582009ebe45df3f3383f19525c"
+          }
+        },
+        {
+          "client_id": "647627597329-odh8qan264fshufqqi87kneokhgl55ia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNPeMRwhEq3v46yBKqtJmzxDBYCyl1fXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647627597329-odh8qan264fshufqqi87kneokhgl55ia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
