@@ -1,24 +1,47 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { colors } from '../utils/colors';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
-const AnswerItem = ({ answer, answerChecked, onAnswerPress, keyProp, disabled }) => {
+const AnswerItem = ({ answer, answerChecked, onAnswerPress, keyProp, disabled, isCorrectAnswerChosen, isWrongAnswerChosen }) => {
     const letter = ['A', 'B', 'C', 'D'];
 
 
     return (
         <TouchableOpacity
             disabled={disabled}
-            style={styles.answerContainer}
-            onPress={() => onAnswerPress(keyProp)}
+            style={answerChecked == keyProp ?
 
-        >
-            <View
-                style={answerChecked == keyProp ? styles.letterContainerChecked : styles.letterContainer}
-            >
-                <Text style={answerChecked == keyProp ? styles.letterChecked : styles.letter} >{letter[keyProp]}</Text>
-            </View>
-            <Text style={styles.text}>{answer}</Text>
+                [styles.answerContainer, { backgroundColor: colors.secondary_dark_blue }] :
+
+                styles.answerContainer}
+            onPress={() => onAnswerPress(keyProp)}>
+
+            {isCorrectAnswerChosen == true ?
+                <View
+                    style={[styles.letterContainer, { backgroundColor: colors.primary_green }]}>
+                    <FontAwesome name='check' size={15} color='white' />
+                </View>
+
+                : (isWrongAnswerChosen == true ?
+
+
+                    <View
+                        style={[styles.letterContainer, { backgroundColor: 'red' }]}>
+                        <FontAwesome name='times' size={15} color='white' />
+                    </View>
+
+
+
+                    : <View
+                        style={answerChecked == keyProp ? styles.letterContainerChecked : styles.letterContainer}>
+                        <Text style={answerChecked == keyProp ? styles.letterChecked : styles.letter} >{letter[keyProp]}</Text>
+                    </View>)
+
+
+            }
+
+            <Text style={answerChecked == keyProp ? [styles.text, { color: 'white' }] : styles.text}>{answer}</Text>
         </TouchableOpacity>
     )
 }
@@ -66,7 +89,7 @@ const styles = StyleSheet.create({
     },
     letterChecked: {
         fontFamily: 'Montserrat-Bold',
-        color: 'white'
+        color: colors.secondary_dark_blue
 
     }
 
@@ -75,6 +98,7 @@ const styles = StyleSheet.create({
         flex: 1,
         fontFamily: 'Montserrat-Regular',
         paddingLeft: 10,
+        color: colors.secondary_dark_blue
 
 
     }

@@ -2,10 +2,18 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { colors } from '../utils/colors';
 
-const NumberItem = ({ number, pressHandler, isAnswered}) => {
+const NumberItem = ({ number, pressHandler, isAnswered, isCorrect, isWrong }) => {
     return (
         <TouchableOpacity
-            style={isAnswered ? [styles.roundContainer, {borderColor: colors.primary_pink}]: styles.roundContainer}
+            style={isCorrect == true ?
+                [styles.roundContainer, { borderColor: colors.primary_green }] :
+                (isWrong == true ?
+                    [styles.roundContainer, { borderColor: 'red' }] :
+                    (isAnswered ?
+                        [styles.roundContainer, {
+                            borderColor:
+                                colors.primary_pink
+                        }] : styles.roundContainer))}
             onPress={pressHandler}
         >
             <Text style={styles.text}>{number}</Text>
@@ -17,7 +25,7 @@ export default NumberItem;
 
 const styles = StyleSheet.create({
     roundContainer: {
-       
+
         borderRadius: 100,
         width: 50,
         height: 50,
@@ -28,7 +36,7 @@ const styles = StyleSheet.create({
         margin: 10
     },
 
-    text : {
+    text: {
 
         fontFamily: 'Montserrat-SemiBold',
         fontSize: 14,
