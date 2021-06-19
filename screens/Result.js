@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors } from '../utils/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Result = ({ route, navigation }) => {
 
 
-    const { abbr, fullname, score , scoreText} = route.params;
+    const { abbr, fullname, score, scoreText, userAnswers } = route.params;
 
     return (
         <View style={styles.container}>
@@ -25,62 +25,78 @@ const Result = ({ route, navigation }) => {
                 </TouchableOpacity>
             </View>
 
+            <ScrollView>
+                <View style={{justifyContent:'center', alignItems: 'center'}}>
 
+                <View style={[styles.startQuizBtn, {
+                    width: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingVertical: 5
+                }]}>
+                    <Text style={styles.text}>{fullname} Exam{'\n'}Mock Test</Text>
 
-            <View style={[styles.startQuizBtn, {
-                width: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
-                paddingVertical: 5
-            }]}>
-                <Text style={styles.text}>{fullname} Exam{'\n'}Mock Test</Text>
-
-            </View>
-
-
-            <Text style={{
-                marginTop: 20,
-                fontFamily: 'Montserrat-ExtraBold',
-                 color: colors.secondary_dark_blue, 
-                 fontSize: 25}}>
-                Your result: 
-            </Text>
-
-            <View style={{
-                width: '100%',
-                justifyContent: 'center',
-                flexDirection: 'row',
-            }}>
-                <View style={styles.bigLabel}>
-                    <FontAwesome name='trophy' size={30} color={colors.secondary_dark_blue} />
-                    <Text style={styles.bigLabelText}>{score ? score : 0}/20</Text>
                 </View>
-            </View>
 
 
-            <View style={{
-                fontFamily: 'Montserrat-SemiBold',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <Text style={styles.text}>{scoreText}</Text>
+                <Text style={{
+                    marginTop: 20,
+                    fontFamily: 'Montserrat-ExtraBold',
+                    color: colors.secondary_dark_blue,
+                    fontSize: 25
+                }}>
+                    Your result:
+                </Text>
 
-                
-            </View>
-
-            <TouchableOpacity
-                style={styles.startQuizBtn}
-                onPress={() => navigation.replace('Test', {
-                    abbr: abbr,
-                    fullname: fullname
-                })}
-
-            >
-
-                <Text style={[styles.startQuiz, { textAlign: 'center' }]}>REDO THE TEST</Text>
-            </TouchableOpacity>
+                <View style={{
+                    width: '100%',
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                }}>
+                    <View style={styles.bigLabel}>
+                        <FontAwesome name='trophy' size={30} color={colors.secondary_dark_blue} />
+                        <Text style={styles.bigLabelText}>{score ? score : 0}/20</Text>
+                    </View>
+                </View>
 
 
+                <View style={{
+                    fontFamily: 'Montserrat-SemiBold',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <Text style={styles.text}>{scoreText}</Text>
+
+
+                </View>
+
+                <TouchableOpacity
+                    style={styles.startQuizBtn}
+                    onPress={() => navigation.replace('Test', {
+                        abbr: abbr,
+                        fullname: fullname
+                    })}
+                >
+
+                    <Text style={[styles.startQuiz, { textAlign: 'center' }]}>REDO THE TEST</Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity
+                    style={styles.startQuizBtn}
+                    onPress={() => navigation.replace('Test', {
+                        abbr: abbr,
+                        fullname: fullname,
+                        userAnswers: userAnswers,
+                     isReview : true
+
+                    })}
+                >
+
+                    <Text style={[styles.startQuiz, { textAlign: 'center' }]}>REVIEW</Text>
+                </TouchableOpacity>
+                </View>
+            </ScrollView>
         </View >
     )
 }
@@ -145,7 +161,7 @@ const styles = StyleSheet.create({
     startQuiz: {
 
         fontFamily: 'Montserrat-ExtraBold',
-        fontSize: 20,
+        fontSize: 16,
         color: colors.secondary_dark_blue
 
     },

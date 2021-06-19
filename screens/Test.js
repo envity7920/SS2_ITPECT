@@ -10,13 +10,23 @@ import { questions } from '../utils/exams';
 
 const Test = ({ route, navigation }) => {
   // Get question list from exam name
-  const { abbr, fullname } = route.params;
+  const { abbr, fullname, userAnswers, isReview } = route.params;
+  const map = new Map();
+  if (userAnswers) {
+    const a = JSON.parse(userAnswers);
+
+    for (const x in a) {
+      map.set(x, a[x]);
+    }
+  }
+
+
   const questionList = questions[abbr];
   const [modalVisible, setModalVisible] = useState(false);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentID, setCurrentID] = useState(questionList[0]['_id']);
-  const [userAnswerList, setUserAnswerList] = useState(new Map());
+  const [userAnswerList, setUserAnswerList] = useState(!userAnswers ? new Map() : map);
   const [answerChecked, setAnswerChecked] = useState();
 
   const prev = () => {
@@ -87,22 +97,21 @@ const Test = ({ route, navigation }) => {
 
 
 
-    Alert.alert('Wow', 'Wanna submit the test?', [
-      {
-        text: 'Cancel',
-        onPress: () => null,
-        style: 'cancel',
-      },
-      {
-        text: 'Submit', onPress: () => navigation.navigate('Result', {
-          abbr: abbr,
-          fullname: fullname,
-          score: score,
-          scoreText: scoreText
-        })
 
-      },
-    ]);
+
+
+
+    navigation.navigate('Result', {
+      abbr: abbr,
+      fullname: fullname,
+      score: score,
+      scoreText: scoreText,
+      userAnswers: JSON.stringify(Object.fromEntries(userAnswerList))
+      // userAnswers: JSON.stringify(userAnswerList);
+    });
+
+
+
 
   }
 
@@ -135,46 +144,100 @@ const Test = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
 
-      <View style={[styles.row, { justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }]}>
-        <TouchableOpacity
-          styles={styles.button}
-          onPress={stopQuiz}>
-          <View style={styles.button}>
-            <FontAwesome name='times' size={15} color='white' />
+
+
+      {isReview == true ?
+        <View style={[styles.row, { justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }]}>
+          <TouchableOpacity
+            styles={styles.button}
+            onPress={() => navigation.popToTop()}>
+            <View style={styles.button}>
+              <FontAwesome name='home' size={15} color='white' />
+            </View>
+          </TouchableOpacity>
+
+
+          <View style={styles.timerContainer}>
+            <Text style={{ color: 'white', fontFamily: 'Montserrat-Bold' }}>Review mode</Text>
           </View>
-        </TouchableOpacity>
-
-        <View style={styles.timerContainer}>
-          {/* <FontAwesome5 name='stopwatch' size={20} color='white' /> */}
-          <CountDown
-            until={60 * 25}
-            size={25}
-            onFinish={() => alert('Finished')}
-            digitStyle={{ backgroundColor: '#FFFfff00' }}
-            digitTxtStyle={{ color: 'white', }}
-            timeToShow={['M', 'S']}
-            timeLabels={{ m: '', s: '' }}
-            onFinish={() => navigation.navigate('Result', {
-              abbr: abbr,
-              fullname: fullname
-
-            })}
-            showSeparator
-            separatorStyle={{ color: '#fff' }}
-          />
 
 
+          <TouchableOpacity
+            styles={styles.button}
+            onPress={() => {
+              setModalVisible(true);
+            }}>
+            <View style={styles.button}>
+              <FontAwesome name='bars' size={15} color='white' />
+            </View>
+          </TouchableOpacity>
 
         </View>
+        :
+        <View style={[styles.row, { justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }]}>
 
-        <TouchableOpacity
-          styles={styles.button}
-          onPress={submit}>
-          <View style={styles.button}>
-            <FontAwesome name='paper-plane' size={15} color='white' />
+          <TouchableOpacity
+            styles={styles.button}
+            onPress={stopQuiz}>
+            <View style={styles.button}>
+              <FontAwesome name='times' size={15} color='white' />
+            </View>
+          </TouchableOpacity>
+
+          <View style={styles.timerContainer}>
+            {/* <FontAwesome5 name='stopwatch' size={20} color='white' /> */}
+            <CountDown
+              until={60 * 25}
+              size={25}
+              onFinish={() => alert('Finished')}
+              digitStyle={{ backgroundColor: '#FFFfff00' }}
+              digitTxtStyle={{ color: 'white', }}
+              timeToShow={['M', 'S']}
+              timeLabels={{ m: '', s: '' }}
+              onFinish={() => submit()}
+              showSeparator
+              separatorStyle={{ color: '#fff' }}
+            />
           </View>
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity
+            styles={styles.button}
+            onPress={() => {
+              Alert.alert('Wow', 'Wanna submit the test?', [
+                {
+                  text: 'Cancel',
+                  onPress: () => null,
+                  style: 'cancel',
+                },
+                {
+                  text: 'Submit', onPress: () => submit()
+                }]);
+            }}>
+            <View style={styles.button}>
+              <FontAwesome name='paper-plane' size={15} color='white' />
+            </View>
+          </TouchableOpacity>
+        </View>
+
+      }
+
+
+
+
+      {/* 
+if (key === parseInt(correctAnswers[qID]) && parseInt(answers[qID]) === key) {
+        div.classList.add('correct-green');
+    }
+    if (key === parseInt(correctAnswers[qID]) && parseInt(answers[qID]) !== key) {
+        div.classList.add('correct-gray');
+    }
+    if (parseInt(correctAnswers[qID]) !== parseInt(answers[qID]) && parseInt(answers[qID]) === key) {
+        div.classList.add('wrong');
+    } */}
+
+
+
+
+
 
 
       {/* <Text>{currentID}</Text> */}
@@ -195,9 +258,18 @@ const Test = ({ route, navigation }) => {
 
 
 
-              <AnswerItem key={key} keyProp={key} answer={answer} answerChecked={answerChecked} onAnswerPress={onAnswerPress} />
+              <AnswerItem
+                key={key}
+                keyProp={key}
+                answer={answer}
+                answerChecked={answerChecked}
+                onAnswerPress={onAnswerPress}
+                disabled={isReview}
+                isCorrectAnswerChosen={isReview == true && questionList[currentIndex].correctAnswer == key && userAnswerList.get(currentID) == key}
+                isWrongAnswerChosen={isReview == true && questionList[currentIndex].correctAnswer != key && userAnswerList.get(currentID) == key}
 
 
+              />
             );
           })}
 
@@ -227,9 +299,12 @@ const Test = ({ route, navigation }) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => {
+          onPress={isReview == true ? null : () => {
+
             setModalVisible(true);
-          }}>
+          }}
+
+        >
           <View>
             <Text style={styles.statusBarText}>{currentIndex + 1} / 20</Text>
           </View>
@@ -269,9 +344,13 @@ const Test = ({ route, navigation }) => {
 
                 <NumberItem
                   number={questionList.indexOf(item) + 1}
-                  isAnswered={userAnswerList.get(item._id) ? true : false}
+                  isAnswered={userAnswerList.get(item._id) != null}
+                  isCorrect={isReview == true && userAnswerList.get(item._id) != null && userAnswerList.get(item._id) == item.correctAnswer}
+                  isWrong={isReview == true && userAnswerList.get(item._id) != null && userAnswerList.get(item._id) != item.correctAnswer}
+
+
                   pressHandler={() => {
-                   
+
                     setModalVisible(!modalVisible);
                     setCurrentIndex(questionList.indexOf(item));
                     setCurrentID(item._id);

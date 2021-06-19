@@ -2,15 +2,16 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { colors } from '../utils/colors';
 
-const AnswerItem = ({ answer, answerChecked , onAnswerPress, keyProp}) => {
+const AnswerItem = ({ answer, answerChecked, onAnswerPress, keyProp, disabled }) => {
     const letter = ['A', 'B', 'C', 'D'];
 
 
     return (
         <TouchableOpacity
-       
+            disabled={disabled}
             style={styles.answerContainer}
             onPress={() => onAnswerPress(keyProp)}
+
         >
             <View
                 style={answerChecked == keyProp ? styles.letterContainerChecked : styles.letterContainer}
