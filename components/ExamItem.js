@@ -79,15 +79,19 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(255, 255, 255, 0.4)',
         marginTop: 15,
         
+        
       },
       boxFormText: {
-        fontSize: 17
+        fontSize: 17,
+        fontFamily: 'Montserrat-Bold',
       },
       boxFormNoQuestion: {
         marginBottom: 20,
         marginRight: 25,
         textAlign: 'right',
-        fontSize: 10
+        fontSize: 10,
+        fontFamily: 'Montserrat-Medium',
+
       },
 
 })

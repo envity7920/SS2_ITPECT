@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     ,
     text: {
         flex: 1,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Montserrat-Medium',
         paddingLeft: 10,
         color: colors.secondary_dark_blue
 

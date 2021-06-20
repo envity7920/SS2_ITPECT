@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 
     }, 
     text : {
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Montserrat-Medium',
         color: colors.secondary_black_blue
     }
 })

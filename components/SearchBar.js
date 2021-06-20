@@ -36,10 +36,11 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 10,
         width: '100%',
-        // height: windowHeight / 15,
-        // borderColor: colors.primary_pink,
+        height: windowHeight / 15,
+       
         borderRadius: 20,
         // borderWidth: 1,
+        borderColor: colors.secondary_blue,
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: colors.secondary_blue,
@@ -61,7 +62,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
-        borderRadius: 20
+        borderRadius: 20,
+        paddingLeft: 20,
+        // width: '100%'
     },
 
 })
