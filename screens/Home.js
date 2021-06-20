@@ -7,7 +7,7 @@ import { exams } from '../utils/exams';
 import { colors } from '../utils/colors';
 import ExamItem from '../components/ExamItem';
 import SearchBar from '../components/SearchBar';
-import LogoIn4 from '../components/LogoIn4';
+import LogoInfor from '../components/LogoInfor';
 const Home = ({ navigation }) => {
 
     const { signOut } = useContext(AuthContext);
@@ -38,7 +38,7 @@ const Home = ({ navigation }) => {
             source={require('../assets/images/login-bg.png')}
         >
             <View style={styles.container}>
-                <LogoIn4></LogoIn4>
+                <LogoInfor></LogoInfor>
                 <SearchBar />
                 <View>
                     <Text style={{

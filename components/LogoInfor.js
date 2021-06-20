@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { StyleSheet, Text, Image, View } from 'react-native'
 import { colors } from '../utils/colors';
 
-const LogoIn4 = ({ }) => {
+const LogoInfor = ({ }) => {
     return (
         <View style={styles.headingForm}>
             <Image
@@ -19,7 +19,7 @@ const LogoIn4 = ({ }) => {
     )
 }
 
-export default LogoIn4
+export default LogoInfor
 
 const styles = StyleSheet.create({
     headingForm: {
