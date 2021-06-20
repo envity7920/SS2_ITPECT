@@ -25,7 +25,7 @@
 
 <h2>Installation</h2>
 <ul>
-<li>Clone repo: <code>git clone https://github.com/jordhan2k/itpec_test_app.git</code></li>
+<li>Clone repo: <code>git clone https://github.com/envity7920/SS2_ITPECT.git</code></li>
   <li>Install Expo: <code>npm install -g expo-cli</code></li>
 <li>Install dependencies: <code>yarn install / npm install</code></li>
 <li>Install Expo Go from Google Play: https://play.google.com/store/apps/details?id=host.exp.exponent</li>
@@ -34,24 +34,23 @@
 <h2>Preview on Android simulator</h2>
 <h3>Onboarding screens</h3>
 <p float="left">
-<img  width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622363287.png">
-<img width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622363300.png">
-<img   width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622363305.png">
  </p>
  
  <h3>Sign-in/ Sign-up screens</h3>
 <p float="left">
-<img  width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622363326.png">
-<img  width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622363331.png">
+<img  width="200px" src="https://github.com/envity7920/SS2_ITPECT/blob/main/demo_imgs/Screenshot_signIn.png">
+<img  width="200px" src="https://github.com/envity7920/SS2_ITPECT/blob/main/demo_imgs/Screenshot_signUp.png">
  </p>
  
   <h3>Main screens</h3>
 <p float="left">
-<img  width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622400835.png">
-<img  width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622400848.png">
+<img  width="200px" src="https://github.com/envity7920/SS2_ITPECT/blob/main/demo_imgs/Screenshot_home.png">
+<img  width="200px" src="https://github.com/envity7920/SS2_ITPECT/blob/main/demo_imgs/Screenshot_start.png">
  </p>
  <p float="left">
-<img  width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622400859.png">
-<img  width="200px" src="https://github.com/jordhan2k/itpec_test_app/blob/main/demo_imgs/Screenshot_1622400868.png">
+<img  width="200px" src="https://github.com/envity7920/SS2_ITPECT/blob/main/demo_imgs/Screenshot_test.png">
+<img  width="200px" src="https://github.com/envity7920/SS2_ITPECT/blob/main/demo_imgs/Screenshot_result.png">
+<img  width="200px" src="https://github.com/envity7920/SS2_ITPECT/blob/main/demo_imgs/Screenshot_reivewAnswer.png">
+<img  width="200px" src="https://github.com/envity7920/SS2_ITPECT/blob/main/demo_imgs/Screenshot_reviewQuestionList.png">
  </p>
  
