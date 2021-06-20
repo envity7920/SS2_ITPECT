@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { colors } from '../utils/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
-const AnswerItem = ({ answer, answerChecked, onAnswerPress, keyProp, disabled, isCorrectAnswerChosen, isWrongAnswerChosen }) => {
+const AnswerItem = ({ answer, answerChecked, onAnswerPress, keyProp, disabled, isCorrectAnswerChosen, isWrongAnswerChosen, isCorrectAnswerNotChosen }) => {
     const letter = ['A', 'B', 'C', 'D'];
 
 
@@ -18,6 +18,7 @@ const AnswerItem = ({ answer, answerChecked, onAnswerPress, keyProp, disabled, i
             onPress={() => onAnswerPress(keyProp)}>
 
             {isCorrectAnswerChosen == true ?
+
                 <View
                     style={[styles.letterContainer, { backgroundColor: colors.primary_green }]}>
                     <FontAwesome name='check' size={15} color='white' />
@@ -31,12 +32,17 @@ const AnswerItem = ({ answer, answerChecked, onAnswerPress, keyProp, disabled, i
                         <FontAwesome name='times' size={15} color='white' />
                     </View>
 
+                    : (isCorrectAnswerNotChosen == true ?
+                        <View
+                            style={[styles.letterContainer, { backgroundColor: colors.primary_green }]}>
+                            <Text style={styles.letter} >{letter[keyProp]}</Text>
+                        </View>
 
-
-                    : <View
-                        style={answerChecked == keyProp ? styles.letterContainerChecked : styles.letterContainer}>
-                        <Text style={answerChecked == keyProp ? styles.letterChecked : styles.letter} >{letter[keyProp]}</Text>
-                    </View>)
+                        : <View
+                            style={answerChecked == keyProp ? styles.letterContainerChecked : styles.letterContainer}>
+                            <Text style={answerChecked == keyProp ? styles.letterChecked : styles.letter} >{letter[keyProp]}</Text>
+                        </View>
+                    ))
 
 
             }
