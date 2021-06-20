@@ -267,7 +267,7 @@ if (key === parseInt(correctAnswers[qID]) && parseInt(answers[qID]) === key) {
                 disabled={isReview}
                 isCorrectAnswerChosen={isReview == true && questionList[currentIndex].correctAnswer == key && userAnswerList.get(currentID) == key}
                 isWrongAnswerChosen={isReview == true && questionList[currentIndex].correctAnswer != key && userAnswerList.get(currentID) == key}
-
+                isCorrectAnswerNotChosen={isReview == true && questionList[currentIndex].correctAnswer == key && userAnswerList.get(currentID) != key}
 
               />
             );
