@@ -14,13 +14,13 @@ import * as Google from 'expo-auth-session/providers/google';
 
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCPej1lvv3ktcpB9weQbm17KX_BWjq3SeQ",
-  authDomain: "rn-itpec.firebaseapp.com",
-  projectId: "rn-itpec",
-  storageBucket: "rn-itpec.appspot.com",
-  messagingSenderId: "647627597329",
-  appId: "1:647627597329:web:2dbbcfea90f1756de0b3b0"
+var firebaseConfig = {
+  apiKey: "AIzaSyDySPj_f5FY5mfVrfHSKiF0k6E8ZwVaqIs",
+  authDomain: "itpec-7d8a2.firebaseapp.com",
+  projectId: "itpec-7d8a2",
+  storageBucket: "itpec-7d8a2.appspot.com",
+  messagingSenderId: "76672959931",
+  appId: "1:76672959931:web:35b4301989b6ca3dd2709e"
 };
 // Initialize Firebase
 if (firebase.apps.length === 0) {
