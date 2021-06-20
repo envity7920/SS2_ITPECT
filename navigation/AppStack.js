@@ -10,16 +10,10 @@ import Start from '../screens/Start';
 import Test from '../screens/Test';
 import Result from '../screens/Result';
 
-
-
-const Stack = createStackNavigator();
-
 export default function AppStack() {
 
   return (
     <Stack.Navigator
-
-
       screenOptions={
         {
           gestureEnabled: true,
@@ -56,12 +50,7 @@ export default function AppStack() {
           gestureEnabled: false
         }}
       />
-
-
     </Stack.Navigator>
-
-
-
   );
 
 

@@ -16,7 +16,6 @@ const Result = ({ route, navigation }) => {
                 width: '100%',
                 justifyContent: 'flex-start',
                 flexDirection: 'row',
-
             }}>
                 <TouchableOpacity
                     styles={styles.backBtn}
@@ -39,7 +38,6 @@ const Result = ({ route, navigation }) => {
                     <Text style={styles.text}>{fullname} Exam{'\n'}Mock Test</Text>
 
                 </View>
-
 
                 <Text style={{
                     marginTop: 20,
@@ -109,11 +107,8 @@ export default Result
 const styles = StyleSheet.create({
     parentContainer: {},
     container: {
-
         height: '100%',
-       
         alignItems: 'center',
-        // justifyContent: 'center',
         padding: 20,
         paddingTop: 40
 
@@ -135,17 +130,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 100
-
     },
     bigLabelText: {
         fontFamily: 'Montserrat-Black',
         fontSize: 25,
         color: colors.secondary_dark_blue
-
     },
-
-
-
     startQuizBtn: {
         marginTop: 20,
         width: '60%',
@@ -154,19 +144,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
-
-
-
     },
-
-
-
     startQuiz: {
 
         fontFamily: 'Montserrat-ExtraBold',
         fontSize: 16,
         color: colors.secondary_dark_blue
-
     },
     text: {
         fontFamily: 'Montserrat-Bold',
@@ -174,6 +157,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 10,
         color: colors.secondary_black_blue
-
     }
 })

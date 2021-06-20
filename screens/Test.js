@@ -222,30 +222,6 @@ const Test = ({ route, navigation }) => {
 
       }
 
-
-
-
-      {/* 
-if (key === parseInt(correctAnswers[qID]) && parseInt(answers[qID]) === key) {
-        div.classList.add('correct-green');
-    }
-    if (key === parseInt(correctAnswers[qID]) && parseInt(answers[qID]) !== key) {
-        div.classList.add('correct-gray');
-    }
-    if (parseInt(correctAnswers[qID]) !== parseInt(answers[qID]) && parseInt(answers[qID]) === key) {
-        div.classList.add('wrong');
-    } */}
-
-
-
-
-
-
-
-      {/* <Text>{currentID}</Text> */}
-
-
-
       {/* Questions area */}
       <ScrollView >
 

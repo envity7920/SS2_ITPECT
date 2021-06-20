@@ -5,28 +5,19 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { colors } from '../utils/colors';
 import { windowHeight } from '../utils/Dimension';
 
+const SocialButton = ({ iconName, buttonText, color, backgroundColor, ...rest }) => {
 
-
-
-
-const SocialButton = ({iconName, buttonText, color, backgroundColor, ...rest}) => {
-   
-  
-  
     let bgColor = backgroundColor;
- 
+
     return (
-        
-            <TouchableOpacity style={[styles.container, {backgroundColor: bgColor}]} {...rest}>
-                <View style={styles.iconWrapper}>
-                    <FontAwesome name={iconName} size={22} color={color}/>
-                </View>
-                <View style={styles.textWrapper}>
-                    <Text style={[styles.btnText, {color: color}]}>{buttonText}</Text>
-                </View>
-                
-            </TouchableOpacity>
-        
+        <TouchableOpacity style={[styles.container, { backgroundColor: bgColor }]} {...rest}>
+            <View style={styles.iconWrapper}>
+                <FontAwesome name={iconName} size={22} color={color} />
+            </View>
+            <View style={styles.textWrapper}>
+                <Text style={[styles.btnText, { color: color }]}>{buttonText}</Text>
+            </View>
+        </TouchableOpacity>
     )
 }
 
@@ -44,28 +35,22 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary_blue,
         color: colors.secondary_dark_blue
     },
-    iconWrapper : {
+    iconWrapper: {
         width: 30,
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 10
-
     },
 
-    textWrapper : {
+    textWrapper: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
-
-
     },
 
-    btnText : {
+    btnText: {
         // fontWeight: 'bold',
         fontSize: 14,
         fontFamily: 'Montserrat-SemiBold'
-      
     }
-
-
 })

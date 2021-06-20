@@ -25,7 +25,6 @@ export default NumberItem;
 
 const styles = StyleSheet.create({
     roundContainer: {
-
         borderRadius: 100,
         width: 50,
         height: 50,
@@ -35,17 +34,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         margin: 10
     },
-
     text: {
-
         fontFamily: 'Montserrat-SemiBold',
         fontSize: 14,
         color: colors.secondary_dark_blue
-
     }
-
-
-
-
-
 })

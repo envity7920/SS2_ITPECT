@@ -25,14 +25,12 @@ const styles = StyleSheet.create({
     headingForm: {
         flexDirection: 'row',
         marginHorizontal: 25,
-
     },
     logo: {
-height: 100,
-width: 100
+        height: 100,
+        width: 100
     },
     headingFormText: {
-        // marginTop: 100,
         marginLeft: 5,
         marginBottom: 45
     },
@@ -40,13 +38,11 @@ width: 100
         fontSize: 36,
         fontWeight: 'bold',
         color: 'red',
-        
     },
     infoLine1: {
         fontSize: 20,
         fontWeight: 'normal',
         color: colors.secondary_black_blue,
-
     },
     infoLine2: {
         fontSize: 14,

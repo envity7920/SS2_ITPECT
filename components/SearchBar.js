@@ -16,13 +16,10 @@ const SearchBar = ({ }) => {
                 numberOfLines={1}
                 placeholder='enter exam name'
                 placeholderTextColor='#666'
-
-               />
-
+            />
             <View style={styles.iconContainer}>
                 <Feather name='search' size={20} color='white' />
             </View>
-
         </View>
     )
 }
@@ -37,16 +34,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         width: '100%',
         height: windowHeight / 15,
-       
         borderRadius: 20,
-        // borderWidth: 1,
         borderColor: colors.secondary_blue,
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: colors.secondary_blue,
-
     },
-
     iconContainer: {
         marginHorizontal: 5,
         padding: 10,
@@ -64,7 +57,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 20,
         paddingLeft: 20,
-        // width: '100%'
     },
 
 })

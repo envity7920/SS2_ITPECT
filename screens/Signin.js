@@ -134,8 +134,6 @@ const Signin = ({ navigation }) => {
 
           {data.isValidEmail ? null : <Text style={styles.error}>Invalid email</Text>}
 
-
-
           <FormInput
             labelValue={data.password}
             onChangeText={(val) => passwordChange(val)}
@@ -145,13 +143,6 @@ const Signin = ({ navigation }) => {
             isSecureTextEntry={data.isSecureTextEntry}
             updateSecureTextEntry={updateSecureTextEntry}
           />
-
-          {/* {data.isValidPassword ? null : <Text style={styles.error}>Password must contain
-        {'\n'}* At least 8 characters.
-       {'\n'} * At least 1 lowercase alphabetical character
-       {'\n'} * At least 1 uppercase alphabetical character
-       {'\n'}* least one special character (!@#$%^&*)</Text>} */}
-
 
           <FormButton
             formButtonText={'Sign in'}

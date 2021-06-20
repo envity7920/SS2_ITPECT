@@ -11,10 +11,7 @@ const Done = ({...props}) => (
     <TouchableOpacity style={{marginHorizontal: 10}} {...props}>
         <Text>Done</Text>
     </TouchableOpacity>
-
-
 )
-
 
     return (
         <Onboarding

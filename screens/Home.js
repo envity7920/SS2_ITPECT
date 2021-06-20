@@ -37,64 +37,38 @@ const Home = ({ navigation }) => {
             style={styles.background}
             source={require('../assets/images/login-bg.png')}
         >
-
             <View style={styles.container}>
-
-
                 <LogoIn4></LogoIn4>
-
-
                 <SearchBar />
-
-                <View style={
-                    {
-                        // flexDirection: 'row',
-                        // paddingVertical: 10,
-                        // alignItems: 'center',
-                        // justifyContent: 'space-between'
-
-                    }
-                }>
-
-
+                <View>
                     <Text style={{
                         fontFamily: 'Montserrat-Bold',
                         color: colors.secondary_dark_blue,
-                        
-
                     }}>
                         All Tests</Text>
-                        
-
-
                 </View>
-
                 <View style={styles.list} >
-                    <FlatList 
-                    data={exams.list} keyExtractor={(item) => item.id} renderItem={({ item }) => (
+                    <FlatList
+                        data={exams.list} keyExtractor={(item) => item.id} renderItem={({ item }) => (
+                            <ExamItem
+                                item={item}
+                                pressHandler={() => {
+                                    navigation.navigate('Start', {
 
-                        <ExamItem
-                            item={item}
-                            pressHandler={() => {
-                                navigation.navigate('Start', {
-
-                                    abbr: item.abbr,
-                                    fullname: item.fullname,
-                                });
-                            }}
-                        />
-                    )}
+                                        abbr: item.abbr,
+                                        fullname: item.fullname,
+                                    });
+                                }}
+                            />
+                        )}
                     />
                 </View>
-                
-                    
                 <TouchableOpacity
-                        style={styles.logout}
-                        onPress={handleSignOut}>
-                        <FontAwesome name='sign-out' size={30} color={colors.secondary_dark_blue} />
-                    </TouchableOpacity>
+                    style={styles.logout}
+                    onPress={handleSignOut}>
+                    <FontAwesome name='sign-out' size={30} color={colors.secondary_dark_blue} />
+                </TouchableOpacity>
             </View>
-
         </ImageBackground>
     )
 }
@@ -105,9 +79,7 @@ const styles = StyleSheet.create({
     background: {
         display: 'flex',
         flexDirection: 'column',
-      
         justifyContent: 'space-around',
-       
         resizeMode: 'center',
         width: '100%',
         height: '100%',
@@ -115,34 +87,16 @@ const styles = StyleSheet.create({
     logo: {
         width: 100,
         height: 100,
-       
-        // marginTop: 100
     },
-
-
     container: {
         padding: 20,
-        // paddingTop:100,
-        
-
-        
     },
     list: {
-       
         marginTop: 10,
         marginBottom: 20,
         height: 360,
-        
-        
-      
     },
     logout: {
-       alignItems: 'flex-end',
-       
-       
+        alignItems: 'flex-end',
     }
-
-
-
-
 })

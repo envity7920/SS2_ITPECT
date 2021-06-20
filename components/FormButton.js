@@ -4,13 +4,11 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors } from '../utils/colors';
 import { windowHeight } from '../utils/Dimension';
 
-const FormButton = ({formButtonText, ...rest}) => {
+const FormButton = ({ formButtonText, ...rest }) => {
     return (
-        
-            <TouchableOpacity style={styles.container} {...rest}>
-                <Text style={{color: colors.true_white, fontFamily: 'Montserrat-Bold', fontSize: 16}}>{formButtonText}</Text>
-            </TouchableOpacity>
-        
+        <TouchableOpacity style={styles.container} {...rest}>
+            <Text style={{ color: colors.true_white, fontFamily: 'Montserrat-Bold', fontSize: 16 }}>{formButtonText}</Text>
+        </TouchableOpacity>
     )
 }
 
@@ -28,6 +26,4 @@ const styles = StyleSheet.create({
         backgroundColor: colors.secondary_blue,
         color: colors.true_white
     }
-
-
 })

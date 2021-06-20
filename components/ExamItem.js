@@ -2,28 +2,20 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { colors } from '../utils/colors'
 
-const ExamItem = ({item, pressHandler}) => {
+const ExamItem = ({ item, pressHandler }) => {
     return (
-        <TouchableOpacity 
-        style={styles.boxTest} 
-        onPress={pressHandler}>
-        {/* <View style={styles.label}>
-            <Text style={styles.labelText}>{item.abbr}</Text>
-        </View>
-
-        <Text style={styles.fullname}>{item.fullname}</Text> */}
-        <View>
-            
-        <Text style={styles.boxFormText}>{item.fullname}</Text>
-          </View>
-          <Text style={styles.boxFormNoQuestion}>20 Questions</Text>
-    </TouchableOpacity>
+        <TouchableOpacity
+            style={styles.boxTest}
+            onPress={pressHandler}>
+            <View>
+                <Text style={styles.boxFormText}>{item.fullname}</Text>
+            </View>
+            <Text style={styles.boxFormNoQuestion}>20 Questions</Text>
+        </TouchableOpacity>
     )
 }
 
 export default ExamItem
-
-
 
 const styles = StyleSheet.create({
 
@@ -31,13 +23,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: colors.primary_pink,
         width: '100%',
-        // borderColor: 'gray',
-        // borderWidth: 1,
         marginVertical: 10,
         padding: 10,
         borderRadius: 100,
         alignItems: 'center'
-
     },
     label: {
         width: 45,
@@ -47,23 +36,18 @@ const styles = StyleSheet.create({
         padding: 5,
         borderRadius: 100,
         backgroundColor: 'white',
-        
-
     },
     labelText: {
 
         fontFamily: 'Montserrat-Bold',
         color: colors.secondary_dark_blue,
         fontSize: 12
-        
     },
-    fullname : {
+    fullname: {
         fontFamily: 'Montserrat-Regular',
         fontSize: 14,
         paddingLeft: 5,
         color: colors.secondary_black_blue
-        
-
     },
     boxTest: {
         display: 'flex',
@@ -78,20 +62,17 @@ const styles = StyleSheet.create({
         height: 100,
         backgroundColor: 'rgba(255, 255, 255, 0.4)',
         marginTop: 15,
-        
-        
-      },
-      boxFormText: {
+    },
+    boxFormText: {
         fontSize: 17,
         fontFamily: 'Montserrat-Bold',
-      },
-      boxFormNoQuestion: {
+    },
+    boxFormNoQuestion: {
         marginBottom: 20,
         marginRight: 25,
         textAlign: 'right',
         fontSize: 10,
         fontFamily: 'Montserrat-Medium',
-
-      },
+    },
 
 })

@@ -21,8 +21,6 @@ const styles = StyleSheet.create({
         borderRadius :20,
         borderColor: colors.primary_pink,
         borderWidth: 3
-
-
     }, 
     text : {
         fontFamily: 'Montserrat-Medium',

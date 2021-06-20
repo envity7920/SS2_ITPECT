@@ -8,10 +8,6 @@ import Onboard from '../screens/Onboard';
 import Signup from '../screens/Signup';
 import Signin from '../screens/Signin';
 
-
-
-
-
 const Stack = createStackNavigator();
 
 export default function AuthenticationStack() {
@@ -29,7 +25,6 @@ export default function AuthenticationStack() {
     })
   }, [])
 
-
   if (isFirstLaunch === null){
     return null;
   } else if (isFirstLaunch === true) {
@@ -38,7 +33,6 @@ export default function AuthenticationStack() {
     routeName = "Signin";
   }
 
-  
   return (
         <Stack.Navigator  
         initialRouteName={routeName}
@@ -65,22 +59,10 @@ export default function AuthenticationStack() {
             name="Signup" 
             component={Signup}
             options={{header: () => null}}
-              
           />
-            
         </Stack.Navigator>
-    
-
 
   );
-      
-          
-
-
-
-
-
-  
 }
 
 const styles = StyleSheet.create({
