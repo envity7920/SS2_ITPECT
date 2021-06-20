@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 25,
 
     },
+    logo: {
+height: 100,
+width: 100
+    },
     headingFormText: {
         // marginTop: 100,
         marginLeft: 5,
