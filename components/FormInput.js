@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 10,
         width: '100%',
-        height: windowHeight / 15,
-        borderColor: colors.primary_pink,
+        height: windowHeight / 12,
+        borderColor: colors.secondary_blue,
         borderRadius: 30,
         borderWidth: 1,
         flexDirection: 'row',
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         padding: 10,
         borderRadius: 100,
-        backgroundColor: colors.primary_pink
+        backgroundColor: colors.secondary_blue
     }, 
     input: {
         padding: 10,

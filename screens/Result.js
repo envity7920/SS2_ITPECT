@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View , ImageBackground} from 'react-native';
 import { colors } from '../utils/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -9,6 +9,8 @@ const Result = ({ route, navigation }) => {
     const { abbr, fullname, score, scoreText, userAnswers } = route.params;
 
     return (
+        <ImageBackground 
+        source={require('../assets/images/login-bg.png')}style={styles.parentContainer}>
         <View style={styles.container}>
             <View style={{
                 width: '100%',
@@ -98,17 +100,18 @@ const Result = ({ route, navigation }) => {
                 </View>
             </ScrollView>
         </View >
+        </ImageBackground>
     )
 }
 
 export default Result
 
 const styles = StyleSheet.create({
-
+    parentContainer: {},
     container: {
 
         height: '100%',
-        backgroundColor: colors.primary_pink,
+       
         alignItems: 'center',
         // justifyContent: 'center',
         padding: 20,

@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
         width: '100%',
         // height: windowHeight / 15,
         // borderColor: colors.primary_pink,
-        borderRadius: 30,
+        borderRadius: 20,
         // borderWidth: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: colors.primary_pink,
+        backgroundColor: colors.secondary_blue,
 
     },
 
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         padding: 10,
         borderRadius: 100,
-        backgroundColor: colors.primary_pink
+        backgroundColor: colors.secondary_blue
     },
     input: {
         padding: 10,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
-        borderRadius: 30
+        borderRadius: 20
     },
 
 })

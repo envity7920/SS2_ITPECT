@@ -8,7 +8,7 @@ const FormButton = ({formButtonText, ...rest}) => {
     return (
         
             <TouchableOpacity style={styles.container} {...rest}>
-                <Text style={{color: colors.secondary_dark_blue, fontFamily: 'Montserrat-Bold', fontSize: 16}}>{formButtonText}</Text>
+                <Text style={{color: colors.true_white, fontFamily: 'Montserrat-Bold', fontSize: 16}}>{formButtonText}</Text>
             </TouchableOpacity>
         
     )
@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.primary_pink,
-        color: colors.secondary_dark_blue
+        backgroundColor: colors.secondary_blue,
+        color: colors.true_white
     }
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ImageBackground } from 'react-native';
 import { colors } from '../utils/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -10,6 +10,10 @@ const Start = ({ route, navigation }) => {
 
     return (
         <View style={styles.container}>
+             <ImageBackground
+        style={styles.background}
+        source={require('../assets/images/quiz-bg.png')}
+      >
             <View style={{
                 width: '100%',
                 justifyContent: 'flex-start',
@@ -58,7 +62,7 @@ const Start = ({ route, navigation }) => {
 
                 <Text style={styles.startQuiz}>START!</Text>
             </TouchableOpacity>
-
+            </ImageBackground>
 
         </View>
     )
@@ -67,40 +71,51 @@ const Start = ({ route, navigation }) => {
 export default Start
 
 const styles = StyleSheet.create({
-
+    background: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+        resizeMode: 'center'
+      },
     container: {
 
         height: '100%',
         backgroundColor: colors.primary_pink,
         alignItems: 'center',
         // justifyContent: 'center',
-        padding: 20,
-        paddingTop: 40
+       
 
     },
     backBtn: {
         width: 40,
         height: 40,
         padding: 10,
+        marginTop: 40,
+        marginLeft: 20,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: colors.secondary_dark_blue,
-        borderRadius: 100
+        borderRadius: 100,
+        
     },
     bigLabel: {
         marginVertical: 20,
         width: 100,
         height: 100,
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(113, 151,213, 0.8)' ,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 100
+        borderRadius: 100,
+        borderColor: colors.true_white,
+        borderWidth: 3
 
     },
     bigLabelText: {
         fontFamily: 'Montserrat-Black',
         fontSize: 25,
-        color: colors.secondary_dark_blue
+        color: colors.true_white
 
     },
 
@@ -110,10 +125,13 @@ const styles = StyleSheet.create({
         marginTop: 20,
         width: '60%',
         padding: 15,
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(113, 151,213, 0.8)' ,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 20
+        borderRadius: 20,
+        borderColor: colors.true_white,
+        borderWidth: 3
+        
 
 
     },
@@ -124,7 +142,7 @@ const styles = StyleSheet.create({
 
         fontFamily: 'Montserrat-ExtraBold',
         fontSize: 20,
-        color: colors.secondary_dark_blue
+        color: colors.true_white
 
     },
     text: {

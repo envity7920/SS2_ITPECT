@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Alert, Image, Keyboard, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, Image, Keyboard, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View, ImageBackground } from 'react-native';
 import FormButton from '../components/FormButton';
 import { colors } from '../utils/colors';
 import FormInput from '../components/FormInput';
@@ -113,10 +113,12 @@ const Signin = ({ navigation }) => {
       onPress={() => {
         Keyboard.dismiss();
       }}>
-      <View style={{ height: '100%', backgroundColor: 'white' }}>
+        <ImageBackground 
+    source={require('../assets/images/login-bg.png')}style={styles.parentContainer}>
+      <View style={{ height: '100%' }}>
         <ScrollView contentContainerStyle={styles.container}>
 
-          <Image style={styles.logo} source={require('../assets/images/logo-text.png')} />
+          <Image style={styles.logo} source={require('../assets/images/app_logo.png')} />
 
           <FormInput
             labelValue={data.email}
@@ -191,6 +193,7 @@ const Signin = ({ navigation }) => {
 
         </ScrollView>
       </View>
+      </ImageBackground>
     </TouchableWithoutFeedback>
 
 
@@ -198,8 +201,11 @@ const Signin = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+  parentContainer: {
+   
+  },
   container: {
-    backgroundColor: '#fff',
+    
     alignItems: 'center',
     padding: 20,
     paddingTop: 40
@@ -207,6 +213,7 @@ const styles = StyleSheet.create({
 
   logo: {
     marginTop: 0,
+    marginBottom: 10,
     height: 120,
     width: 120,
     resizeMode: 'cover'

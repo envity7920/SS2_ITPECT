@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Alert, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View, ImageBackground } from 'react-native';
 import FormButton from '../components/FormButton';
 
 import { colors } from '../utils/colors';
@@ -120,8 +120,9 @@ const Signup = ({ navigation }) => {
     <TouchableWithoutFeedback onPress={() => {
       Keyboard.dismiss();
     }}>
-
-      <View style={{ height: '100%', backgroundColor: 'white' }}>
+<ImageBackground 
+    source={require('../assets/images/homepage_bg.png')}style={styles.parentContainer}>
+      <View style={{ height: '100%' }}>
         <ScrollView contentContainerStyle={styles.container}>
           <View style={{ width: '100%', justifyContent: 'center' }}>
             <TouchableOpacity styles={styles.backBtn} onPress={() => navigation.navigate("Signin")}>
@@ -227,6 +228,7 @@ const Signup = ({ navigation }) => {
         </ScrollView>
 
       </View>
+      </ImageBackground>
     </TouchableWithoutFeedback>
 
 
@@ -234,8 +236,9 @@ const Signup = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+  parentContainer: {},
   container: {
-    backgroundColor: '#fff',
+    
     alignItems: 'center',
     padding: 20,
     paddingTop: 40

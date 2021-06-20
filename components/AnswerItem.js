@@ -58,7 +58,9 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         padding: 15,
         borderRadius: 20,
-        alignItems: 'center'
+        alignItems: 'center',
+        borderWidth: 2,
+        borderColor: colors.secondary_dark_blue
 
 
     },
@@ -106,3 +108,4 @@ const styles = StyleSheet.create({
 
 
 })
+// download/temp

@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { Alert, BackHandler, FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View, Modal } from 'react-native';
+import { Alert, BackHandler, FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View, Modal , ImageBackground} from 'react-native';
 import CountDown from 'react-native-countdown-component';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import AnswerItem from '../components/AnswerItem';
@@ -142,6 +142,8 @@ const Test = ({ route, navigation }) => {
   // RENDERING
 
   return (
+    <ImageBackground 
+    source={require('../assets/images/quiz-bg.png')}style={styles.parentContainer}>
     <View style={styles.container}>
 
 
@@ -267,7 +269,7 @@ if (key === parseInt(correctAnswers[qID]) && parseInt(answers[qID]) === key) {
                 disabled={isReview}
                 isCorrectAnswerChosen={isReview == true && questionList[currentIndex].correctAnswer == key && userAnswerList.get(currentID) == key}
                 isWrongAnswerChosen={isReview == true && questionList[currentIndex].correctAnswer != key && userAnswerList.get(currentID) == key}
-
+                
 
               />
             );
@@ -384,6 +386,7 @@ if (key === parseInt(correctAnswers[qID]) && parseInt(answers[qID]) === key) {
       </Modal>
 
     </View>
+    </ImageBackground>
   )
 }
 
@@ -394,7 +397,7 @@ if (key === parseInt(correctAnswers[qID]) && parseInt(answers[qID]) === key) {
 export default Test
 
 const styles = StyleSheet.create({
-
+  parentContainer: {},
   container: {
     height: '100%',
     flexDirection: 'column',
@@ -402,7 +405,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.primary_pink
+   
 
   },
   button: {
@@ -417,7 +420,7 @@ const styles = StyleSheet.create({
 
   row: {
 
-    backgroundColor: colors.primary_pink,
+   
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
