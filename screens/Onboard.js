@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, Touchable, TouchableOpacity } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
+import ImageBackground from 'react-native/Libraries/Image/ImageBackground';
 import {colors} from '../utils/colors';
 
 const Onboard = ({navigation}) => {
@@ -20,22 +21,24 @@ const Done = ({...props}) => (
         DoneButtonComponent = {Done}
   pages={[
     {
+      // backgroundColor:<ImageBackground source={require('../assets/images/On-bg.png')}/> ,
       backgroundColor: colors.primary_pink,
       image: <Image source={require('../assets/images/on1.png')} />,
-      title: '',
+      title: 'Welcome to ITPEC App!',
       subTitleStyles: style.title,
       subtitle: 'It is health that is the real wealth, and not pieces of gold and silver',
     },
     {
-        backgroundColor: colors.primary_yellow,
-        image: <Image source={require('../assets/images/on2.png')} />,
+      // backgroundColor:<ImageBackground source={require('../assets/images/On-bg.png')}/> ,
+        // backgroundColor: colors.primary_yellow,
+        image: <Image source={require('../assets/images/onboard2.png')} />,
         title: '',
         subTitleStyles: style.title,
         subtitle: 'Dun blame body shaming blame your ugly body',
       },
       {
         backgroundColor: colors.primary_blue,
-        image: <Image source={require('../assets/images/on4.png')} />,
+        image: <Image source={require('../assets/images/onboard3.png')} />,
         title: '',
         subTitleStyles: style.title,
         subtitle: 'Your mouth is watering go get it',

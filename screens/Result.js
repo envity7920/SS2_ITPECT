@@ -4,8 +4,7 @@ import { colors } from '../utils/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Result = ({ route, navigation }) => {
-
-
+    // Get params from previous screen
     const { abbr, fullname, score, scoreText, userAnswers } = route.params;
 
     return (
