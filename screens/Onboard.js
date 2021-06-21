@@ -21,27 +21,28 @@ const Done = ({...props}) => (
         DoneButtonComponent = {Done}
   pages={[
     {
-      // backgroundColor:<ImageBackground source={require('../assets/images/On-bg.png')}/> ,
+      backgroundColor:<ImageBackground source={require('../assets/images/Start.png')}/> ,
       backgroundColor: colors.primary_pink,
       image: <Image source={require('../assets/images/on1.png')} />,
-      title: 'Welcome to ITPEC App!',
+      title: '',
       subTitleStyles: style.title,
-      subtitle: 'It is health that is the real wealth, and not pieces of gold and silver',
+      subtitle: '',
     },
     {
-      // backgroundColor:<ImageBackground source={require('../assets/images/On-bg.png')}/> ,
+        backgroundColor:<ImageBackground source={require('../assets/images/On-bg.png')}/> ,
         // backgroundColor: colors.primary_yellow,
         image: <Image source={require('../assets/images/onboard2.png')} />,
         title: '',
         subTitleStyles: style.title,
-        subtitle: 'Dun blame body shaming blame your ugly body',
+        subtitle: 'Just need a mobile phone, you can practice anytime, anywhere!',
       },
       {
-        backgroundColor: colors.primary_blue,
+        backgroundColor:<ImageBackground source={require('../assets/images/onboard3-bg.png')}/> ,
+        //backgroundColor: colors.primary_blue,
         image: <Image source={require('../assets/images/onboard3.png')} />,
         title: '',
         subTitleStyles: style.title,
-        subtitle: 'Your mouth is watering go get it',
+        subtitle: '20 questions each test. One wrong answer is one new knowledge.',
       }
     
   ]}
