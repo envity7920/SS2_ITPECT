@@ -20,7 +20,7 @@ const Signin = ({ navigation }) => {
 
 
   // CONTEXT
-  const { signIn, googleSignIn} = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
 
 
   // FUNCTIONS TO HANDEL INPUT CHANGE OR PRESS EVENTS
@@ -113,77 +113,77 @@ const Signin = ({ navigation }) => {
       onPress={() => {
         Keyboard.dismiss();
       }}>
-        <ImageBackground 
-    source={require('../assets/images/login-bg.png')}style={styles.parentContainer}>
-      <View style={{ height: '100%' }}>
-        <ScrollView contentContainerStyle={styles.container}>
+      <ImageBackground
+        source={require('../assets/images/login-bg.png')} style={styles.parentContainer}>
+        <View style={{ height: '100%' }}>
+          <ScrollView contentContainerStyle={styles.container}>
 
-          <Image style={styles.logo} source={require('../assets/images/app_logo.png')} />
+            <Image style={styles.logo} source={require('../assets/images/app_logo.png')} />
 
-          <FormInput
-            labelValue={data.email}
-            onChangeText={(val) => textInputChange(val)}
-            iconName='user'
-            placeholder='Email'
-            keyboardType='email-address'
-            autoCapitalize='none'
-            infoType='email'
-            check_textInputChange={data.check_textInputChange}
-            isValidInfo={data.isValidEmail}
-          />
+            <FormInput
+              labelValue={data.email}
+              onChangeText={(val) => textInputChange(val)}
+              iconName='user'
+              placeholder='Email'
+              keyboardType='email-address'
+              autoCapitalize='none'
+              infoType='email'
+              check_textInputChange={data.check_textInputChange}
+              isValidInfo={data.isValidEmail}
+            />
 
-          {data.isValidEmail ? null : <Text style={styles.error}>Invalid email</Text>}
+            {data.isValidEmail ? null : <Text style={styles.error}>Invalid email</Text>}
 
-          <FormInput
-            labelValue={data.password}
-            onChangeText={(val) => passwordChange(val)}
-            iconName='lock'
-            placeholder='Password'
-            infoType='password'
-            isSecureTextEntry={data.isSecureTextEntry}
-            updateSecureTextEntry={updateSecureTextEntry}
-          />
+            <FormInput
+              labelValue={data.password}
+              onChangeText={(val) => passwordChange(val)}
+              iconName='lock'
+              placeholder='Password'
+              infoType='password'
+              isSecureTextEntry={data.isSecureTextEntry}
+              updateSecureTextEntry={updateSecureTextEntry}
+            />
 
-          <FormButton
-            formButtonText={'Sign in'}
-            onPress={() => handleSignIn()}
-          />
+            <FormButton
+              formButtonText={'Sign in'}
+              onPress={() => handleSignIn()}
+            />
 
-          <TouchableOpacity>
+            <TouchableOpacity>
 
-            <Text style={{ marginVertical: 10, fontFamily: 'Montserrat-SemiBold', fontSize: 14, color: colors.secondary_dark_blue }}>Forgot password?</Text>
+              <Text style={{ marginVertical: 10, fontFamily: 'Montserrat-SemiBold', fontSize: 14, color: colors.secondary_dark_blue }}>Forgot password?</Text>
 
-          </TouchableOpacity>
+            </TouchableOpacity>
 
-          <SocialButton
-            iconName='facebook'
-            color="#4867aa"
-            buttonText='Sign in with Facebook'
-            backgroundColor='#e6eaf4' />
+            <SocialButton
+              iconName='facebook'
+              color="#4867aa"
+              buttonText='Sign in with Facebook'
+              backgroundColor='#e6eaf4' />
 
-          <SocialButton
-            iconName='google'
-            color="#de4d41"
-            buttonText='Sign in with Google'
-            backgroundColor='#f5e7ea' 
-            onPress={() => googleSignIn()}/>
+            <SocialButton
+              iconName='google'
+              color="#de4d41"
+              buttonText='Sign in with Google'
+              backgroundColor='#f5e7ea'
+              onPress={() => googleSignIn()} />
 
 
-          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-            <Text
-              style={{
-                fontFamily: 'Montserrat-SemiBold',
-                fontSize: 14, marginVertical: 10,
-                color: colors.secondary_dark_blue,
-                textAlign: 'center'
-              }}>
-              Don't have an account?{'\n'} Sign up
-      </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+              <Text
+                style={{
+                  fontFamily: 'Montserrat-SemiBold',
+                  fontSize: 14, marginVertical: 10,
+                  color: colors.secondary_dark_blue,
+                  textAlign: 'center'
+                }}>
+                Don't have an account?{'\n'} Sign up
+              </Text>
 
-          </TouchableOpacity>
+            </TouchableOpacity>
 
-        </ScrollView>
-      </View>
+          </ScrollView>
+        </View>
       </ImageBackground>
     </TouchableWithoutFeedback>
 
@@ -193,10 +193,10 @@ const Signin = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   parentContainer: {
-   
+
   },
   container: {
-    
+
     alignItems: 'center',
     padding: 20,
     paddingTop: 40

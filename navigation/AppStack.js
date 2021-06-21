@@ -10,6 +10,8 @@ import Start from '../screens/Start';
 import Test from '../screens/Test';
 import Result from '../screens/Result';
 
+const Stack = createStackNavigator();
+
 export default function AppStack() {
 
   return (
