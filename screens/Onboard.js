@@ -21,30 +21,26 @@ const Done = ({...props}) => (
         DoneButtonComponent = {Done}
   pages={[
     {
-      backgroundColor:<ImageBackground source={require('../assets/images/Start.png')}/> ,
       backgroundColor: colors.primary_pink,
-      image: <Image source={require('../assets/images/on1.png')} />,
-      title: '',
+      image: <Image style= {style.onboardScreen} source={require('../assets/images/on1.png')} />,
+      title: <Text style={style.titleTxt}></Text>,
       subTitleStyles: style.title,
       subtitle: '',
     },
     {
-        backgroundColor:<ImageBackground source={require('../assets/images/On-bg.png')}/> ,
-        // backgroundColor: colors.primary_yellow,
-        image: <Image source={require('../assets/images/onboard2.png')} />,
-        title: '',
+        backgroundColor: colors.primary_yellow,
+        image: <Image style= {style.onboardScreen} source={require('../assets/images/on2.png')} />,
+        title: "",
         subTitleStyles: style.title,
         subtitle: 'Just need a mobile phone, you can practice anytime, anywhere!',
       },
       {
-        backgroundColor:<ImageBackground source={require('../assets/images/onboard3-bg.png')}/> ,
-        //backgroundColor: colors.primary_blue,
-        image: <Image source={require('../assets/images/onboard3.png')} />,
-        title: '',
+        backgroundColor: colors.primary_blue,
+        image: <Image style= {style.onboardScreen} source={require('../assets/images/on3.png')} />,
+        title: "",
         subTitleStyles: style.title,
-        subtitle: '20 questions each test. One wrong answer is one new knowledge.',
+        subtitle: '20 questions each test. One wrong answer is one new knowledge',
       }
-    
   ]}
 />
     )
@@ -55,8 +51,16 @@ export default Onboard;
 
 const style = StyleSheet.create({
 
-
+onboardScreen:{
+  marginBottom: -160
+},
   title: {
-    fontFamily: 'Montserrat-Medium'
-  }
+    fontFamily: 'Montserrat-Medium',
+    paddingBottom: 90,
+   
+  
+  }, 
+ subtitle: {
+   marginBottom: 90
+ }
 });
