@@ -21,14 +21,14 @@ const Done = ({...props}) => (
         DoneButtonComponent = {Done}
   pages={[
     {
-      backgroundColor: colors.primary_pink,
+      backgroundColor: '#4552CA',
       image: <Image style= {style.onboardScreen} source={require('../assets/images/on1.png')} />,
       title: <Text style={style.titleTxt}></Text>,
       subTitleStyles: style.title,
       subtitle: '',
     },
     {
-        backgroundColor: colors.primary_yellow,
+        backgroundColor: '#C7ADFD',
         image: <Image style= {style.onboardScreen} source={require('../assets/images/on2.png')} />,
         title: "",
         subTitleStyles: style.title,
@@ -52,7 +52,7 @@ export default Onboard;
 const style = StyleSheet.create({
 
 onboardScreen:{
-  marginBottom: -160
+  marginBottom: -260
 },
   title: {
     fontFamily: 'Montserrat-Medium',
