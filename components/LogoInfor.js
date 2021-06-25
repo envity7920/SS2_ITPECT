@@ -11,7 +11,7 @@ const LogoInfor = ({ }) => {
                 source={require('../assets/images/app_logo.png')}
             />
             <View style={styles.headingFormText}>
-                <Text style={styles.heading}>ITPECT</Text>
+                <Text style={styles.heading}>ITPEC</Text>
                 <Text style={styles.infoLine1}>Information Technology</Text>
                 <Text style={styles.infoLine2}>Professional Examination Council</Text>
             </View>
